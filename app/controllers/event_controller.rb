@@ -1,4 +1,5 @@
 class EventController < ApplicationController
-  def index
+  def show
+    @event = Event.find(1)
   end
 end
