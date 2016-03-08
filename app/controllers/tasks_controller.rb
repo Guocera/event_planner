@@ -12,7 +12,7 @@ class TasksController < ApplicationController
       )
       redirect_to event_path(@event)
     else
-      redirect_to event_path(@event)
+      redirect_to event_path(@event), alert: "Tasks require a deadline and description."
     end
   end
 
