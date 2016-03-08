@@ -48,7 +48,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Milestones
+                            Deadlines
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -57,7 +57,7 @@
                                         <tr>
                                             <th>Status</th>                                
                                             <th>Deadline</th>
-                                            <th>Task</th>
+                                            <th>Activity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -135,13 +135,17 @@
                                             <td>11/10/2014</td>
                                             <td>Fourth task</td>
                                         </tr>
+                                        <tr>
+                                            <%= form_for(@task) do |f| %>
+                                                <td><%= f.date_field :end_date %></td>
+                                                <td><%= f.text_field :description %></td>
+                                            <% end %>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <form action="post">
-                                <input type="date" />
-                                <input type="text" /> <br />
-                            </form>
+                            
+                              
                         </div>
                     </div>
                 </div>
@@ -156,30 +160,25 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
+                                            <td>Mark Otto</td>
                                             <td>mark.otto@cbe.ab.ca</td>
                                         </tr>
                                         <tr>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
+                                            <td>Jacob Thornton</td>
                                             <td>jacob.t@twentyfirst.ca</td>
                                         </tr>
                                         <tr>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
+                                            <td>Larry the Bird</td>
                                             <td>larry@thebird.com</td>
                                         </tr>
                                         <tr>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
+                                            <td>Larry the Bird</td>
                                             <td>itsBeen@ALong.day</td>
                                         </tr>
                                     </tbody>
@@ -192,17 +191,8 @@
         </div>
     </div>
 
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
-                </div>
+    <%= render '/footer' %>
 
-            </div>
-        </div>
-    </footer>
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
