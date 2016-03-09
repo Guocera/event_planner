@@ -11,9 +11,9 @@ class GoalsController < ApplicationController
         status: "Incomplete",
         title: "Deadline: #{@goal.end_date.to_date} : Assigned to: #{@organizer.first_name}"
       )
-      redirect_to event_path(@event)
+      redirect_to event_path(@event), goal_success: "Goal was added successfully."
     else
-      redirect_to event_path(@event)
+      redirect_to event_path(@event), goal_alert: "Goals require a deadline and description."
     end
   end
 
@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @event = Event.find(1)
     @goal.destroy
-    redirect_to event_path(@event)
+    redirect_to event_path(@event), goal_success: "Goal was deleted successfully."
   end
 
   def update
@@ -38,7 +38,7 @@ class GoalsController < ApplicationController
       @goal.update(status: "Complete")
     end
 
-    redirect_to event_path(@event)
+    redirect_to event_path(@event), goal_success: "Goal was updated successfully."
   end
 
   protected

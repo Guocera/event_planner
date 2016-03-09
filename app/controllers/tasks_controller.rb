@@ -10,7 +10,7 @@ class TasksController < ApplicationController
         event: @event,
         title: "Deadline: #{@task.end_date.to_date} : Assigned to: #{@organizer.first_name}"
       )
-      redirect_to event_path(@event)
+      redirect_to event_path(@event), task_success: "Task was added successfully."
     else
       redirect_to event_path(@event), task_alert: "Tasks require a deadline and description."
     end
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @event = Event.find(1)
     @task.destroy
-    redirect_to event_path(@event), task_success: "Task was successfully deleted."
+    redirect_to event_path(@event), task_success: "Task was deleted successfully."
   end
   
   def index
