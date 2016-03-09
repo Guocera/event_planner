@@ -8,7 +8,7 @@ class TasksController < ApplicationController
       @task.update(
         start_date: Date.today,
         event: @event,
-        title: "#{@event.name} - #{@organizer.first_name}: #{@task.end_date}"
+        title: "Deadline: #{@task.end_date.to_date} : Assigned to: #{@organizer.first_name}"
       )
       redirect_to event_path(@event)
     else
@@ -17,11 +17,13 @@ class TasksController < ApplicationController
   end
 
   def show
-    
+    @organizer = Organizer.first
+    @task = Task.find(params[:id])
   end
 
   def index
-    @tasks = Organizer.first.tasks
+    @organizer = Organizer.first
+    @tasks = @organizer.tasks
   end
 
   protected

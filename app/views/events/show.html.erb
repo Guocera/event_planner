@@ -131,17 +131,32 @@
                                                 <td><%= f.text_field :description, size: 15 %></td>
                                             <% end %>
                                         </tr>
-                                        <% @tasks.each do |task| %>
-                                            <tr>
+                                        <% @tasks.each_with_index do |task, i| %>
+                                            <tr data-toggle="modal" data-target=<%= "#myModal#{i}" %>>
                                                 <td><%= task.end_date.to_date %></td>
-                                                <td><%= link_to truncate(task.description, length: 20), task_path(task) %></td>
+                                                <td><%= truncate(task.description, length: 20) %></td>
                                             </tr>
+                                            <div class="modal fade" id=<%= "myModal#{i}" %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            <h4 class="modal-title" id=<%= "myModal#{i}Label" %>><%= task.title %></h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <%= task.description %>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                                                            <button type="button" class="btn btn-primary">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <% end %>
                                     </tbody>
                                 </table>
                             </div>
-                            
-                              
                         </div>
                     </div>
                 </div>
