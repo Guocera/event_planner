@@ -86,7 +86,10 @@
                                                             <%= goal.description %>
                                                         </div>
                                                         <div class="modal-footer">
+                                                            <strong class="pull-left">Mark as:&nbsp;</strong>
+                                                            <%= button_to "Incomplete", task_path(goal), change: "Incomplete" ,method: :put, class: "btn btn-sm btn-danger pull-left" %>
                                                             <%= button_to "In progress", task_path(goal), change: "In progress" ,method: :put, class: "btn btn-sm btn-primary pull-left" %>
+                                                            <%= button_to "Completed", task_path(goal), change: "Completed" ,method: :put, class: "btn btn-sm btn-success pull-left" %>
                                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
