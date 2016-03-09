@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
       )
       redirect_to event_path(@event)
     else
-      redirect_to event_path(@event), alert: "Goals require a deadline and description."
+      redirect_to event_path(@event)
     end
   end
 
@@ -20,7 +20,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @event = Event.find(1)
     @goal.destroy
-    redirect_to event_path(@event), notice: "Goal was successfully deleted."
+    redirect_to event_path(@event)
   end
 
   protected
