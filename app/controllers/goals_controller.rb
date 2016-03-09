@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
     when "In Progress"
       @goal.update(status: "In Progress")
     when "Completed"
-      @goal.update(status: "Complete")
+      @goal.update(status: "Completed")
     end
 
     redirect_to event_path(@event), goal_success: "Goal was updated successfully."
