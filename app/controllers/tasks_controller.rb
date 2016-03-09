@@ -16,6 +16,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @event = Event.find(1)
+    @task.destroy
+    redirect_to event_path(@event), notice: "Task was successfully deleted."
+  end
+
   def show
     @organizer = Organizer.first
     @task = Task.find(params[:id])

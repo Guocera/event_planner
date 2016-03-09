@@ -116,6 +116,12 @@
                                     <%= alert %>
                                 </div>    
                             <% end %>
+                            <% if notice %>
+                                <div class="alert alert-success">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    <%= notice %>
+                                </div>
+                            <% end %>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -147,8 +153,8 @@
                                                             <%= task.description %>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-sm btn-danger pull-left" data-dismiss="modal">Delete</button>
-                                                            <button type="button" class="btn btn-primary">Close</button>
+                                                            <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-sm btn-danger pull-left" %>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
