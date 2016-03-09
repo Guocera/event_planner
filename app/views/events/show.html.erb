@@ -87,9 +87,9 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <strong class="pull-left">Mark as:&nbsp;&nbsp;</strong>
-                                                            <%= button_to "Incomplete", task_path(goal), change: "Incomplete" ,method: :put, class: "btn btn-sm btn-danger pull-left" %>
-                                                            <%= button_to "In Progress", task_path(goal), change: "In Progress" ,method: :put, class: "btn btn-sm btn-primary pull-left" %>
-                                                            <%= button_to "Completed", task_path(goal), change: "Completed" ,method: :put, class: "btn btn-sm btn-success pull-left" %>
+                                                            <%= button_to "Incomplete", goal_path(goal, change: "Incomplete"), method: :put, class: "btn btn-sm btn-danger pull-left" %>
+                                                            <%= button_to "In Progress", goal_path(goal, change: "In Progress"), method: :put, class: "btn btn-sm btn-primary pull-left" %>
+                                                            <%= button_to "Completed", goal_path(goal, change: "Completed"), method: :put, class: "btn btn-sm btn-success pull-left" %>
                                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
@@ -109,16 +109,16 @@
                             Tasks
                         </div>
                         <div class="panel-body">
-                            <% if alert %>
+                            <% if task_alert %>
                                 <div class="alert alert-danger">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <%= alert %>
+                                    <%= task_alert %>
                                 </div>    
                             <% end %>
-                            <% if notice %>
+                            <% if task_notice %>
                                 <div class="alert alert-success">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                    <%= notice %>
+                                    <%= task_notice %>
                                 </div>
                             <% end %>
                             <div class="table-responsive">
