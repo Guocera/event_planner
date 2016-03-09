@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :task_alert, :task_notice, :goal_alert, :goal_notice
+  add_flash_types :task_alert, :task_success, :goal_alert, :goal_success
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

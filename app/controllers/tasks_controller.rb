@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @event = Event.find(1)
     @task.destroy
-    redirect_to event_path(@event), task_notice: "Task was successfully deleted."
+    redirect_to event_path(@event), task_success: "Task was successfully deleted."
   end
   
   def index
