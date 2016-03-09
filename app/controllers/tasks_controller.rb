@@ -16,6 +16,9 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    
+  end
 
   def index
     @tasks = Organizer.first.tasks
