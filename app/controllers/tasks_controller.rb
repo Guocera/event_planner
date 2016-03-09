@@ -22,12 +22,7 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to event_path(@event), notice: "Task was successfully deleted."
   end
-
-  def show
-    @organizer = Organizer.first
-    @task = Task.find(params[:id])
-  end
-
+  
   def index
     @organizer = Organizer.first
     @tasks = @organizer.tasks

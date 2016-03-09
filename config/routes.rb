@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :events, only: [:show]
-  resources :tasks, only: [:index, :show, :create, :destroy]
+  resources :tasks, only: [:index, :create, :destroy]
+  resources :goals, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
