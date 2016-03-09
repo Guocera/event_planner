@@ -107,11 +107,14 @@
                                                             <%= goal.description %>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <strong class="pull-left">Mark as:&nbsp;&nbsp;</strong>
-                                                            <%= button_to "Incomplete", goal_path(goal, change: "Incomplete"), method: :put, class: "btn btn-sm btn-danger pull-left" %>
-                                                            <%= button_to "In Progress", goal_path(goal, change: "In Progress"), method: :put, class: "btn btn-sm btn-primary pull-left" %>
-                                                            <%= button_to "Completed", goal_path(goal, change: "Completed"), method: :put, class: "btn btn-sm btn-success pull-left" %>
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                            <%= button_to "Completed", goal_path(goal, change: "Completed"), method: :put, class: "btn btn-sm btn-success pull-right" %>
+                                                            <%= button_to "In Progress", goal_path(goal, change: "In Progress"), method: :put, class: "btn btn-sm btn-primary pull-right" %>
+                                                            <%= button_to "Incomplete", goal_path(goal, change: "Incomplete"), method: :put, class: "btn btn-sm btn-danger pull-right" %>
+                                                            <strong class="pull-right">Mark as:&nbsp;&nbsp;</strong>
+
+
+                                                            <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Close</button>
+                                                            <%= button_to "Delete", goal_path(goal), method: :delete, class: "btn btn-xs btn-danger pull-left" %>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
