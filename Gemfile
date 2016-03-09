@@ -51,3 +51,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+
+gem 'puma'
+
+ruby "2.2.3"
