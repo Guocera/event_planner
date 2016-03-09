@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131133954) do
+ActiveRecord::Schema.define(version: 20160309030414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20160131133954) do
 
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
   add_index "events", ["teacher_id"], name: "index_events_on_teacher_id", using: :btree
+
+  create_table "goals", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "event_id"
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "goals", ["event_id"], name: "index_goals_on_event_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
     t.string   "first_name"
@@ -60,5 +70,6 @@ ActiveRecord::Schema.define(version: 20160131133954) do
 
   add_foreign_key "events", "organizers"
   add_foreign_key "events", "teachers"
+  add_foreign_key "goals", "events"
   add_foreign_key "tasks", "events"
 end
