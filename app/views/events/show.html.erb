@@ -71,6 +71,7 @@
 
                                         <% @goals.each_with_index do |goal, i| %>
                                             <tr data-toggle="modal" data-target=<%= "#myGoal#{i}" %>>
+                                                <td><span class="btn btn-primary btn-xs">In Progress</td>
                                                 <td><%= goal.end_date.to_date %></td>
                                                 <td><%= truncate(goal.description, length: 20) %></td>
                                             </tr>
