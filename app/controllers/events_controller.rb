@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     @organizer = Organizer.first
 
     @task = Task.new
-    @tasks = @organizer.tasks.order("end_date DESC")
+    @tasks = @organizer.tasks.order("end_date ASC")
 
     @goal = Goal.new
     @goals = @organizer.goals.order("end_date ASC")

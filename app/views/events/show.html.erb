@@ -51,6 +51,18 @@
                             Goals
                         </div>
                         <div class="panel-body">
+                            <% if goal_alert %>
+                                <div class="alert alert-danger">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <%= goal_alert %>
+                                </div>    
+                            <% end %>
+                            <% if goal_success %>
+                                <div class="alert alert-success">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    <%= goal_success %>
+                                </div>
+                            <% end %>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
