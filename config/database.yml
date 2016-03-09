@@ -25,7 +25,11 @@ default: &default
   password: <%= ENV['PASSWORD'] %>
 
 development:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  database: event_planner_development
   # database: event_planner_development
 
   # The specified database role being used to connect to postgres.
@@ -59,7 +63,14 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  database: <%= ENV['DATABASE'] %>
+  username: <%= ENV['USERNAME'] %>
+  port: <%= ENV['PORT'] %>
+  password: <%= ENV['PASSWORD'] %>
   # database: event_planner_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -82,7 +93,14 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  database: <%= ENV['DATABASE'] %>
+  username: <%= ENV['USERNAME'] %>
+  port: <%= ENV['PORT'] %>
+  password: <%= ENV['PASSWORD'] %>
   # database: event_planner_production
   # username: event_planner
   # password: <%= ENV['EVENT_PLANNER_DATABASE_PASSWORD'] %>
